@@ -1,0 +1,3 @@
+Solr is built on top of Apache Lucene.
+It provides distributed indexing, replication, load-balanced querying,
+and a centralized configuration system.

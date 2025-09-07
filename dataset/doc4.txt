@@ -1,0 +1,2 @@
+Indexing is the process of converting text into a format that allows fast and efficient searching.
+Lucene stores terms, posting lists, and other structures to enable quick retrieval.

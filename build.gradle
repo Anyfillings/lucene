@@ -1,0 +1,39 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    lucene = '9.9.2'
+}
+
+dependencies {
+    implementation "org.apache.lucene:lucene-core:${lucene}"
+    implementation "org.apache.lucene:lucene-analysis-common:${lucene}"
+    implementation "org.apache.lucene:lucene-queryparser:${lucene}"
+    implementation "org.apache.lucene:lucene-highlighter:${lucene}"
+    implementation "org.apache.lucene:lucene-codecs:${lucene}"
+
+    // JMH
+    implementation "org.openjdk.jmh:jmh-core:1.37"
+    annotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:1.37"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
+}
+
+
+application {
+    // Gradle 7+ — используем mainClass, а не mainClassName
+    mainClass = 'org.example.IndexInspector'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}
